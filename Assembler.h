@@ -1,45 +1,45 @@
-#ifndef C_COMPILER_H
-#define C_COMPILER_H
+#ifndef ASSEMBLER_H
+#define ASSEMBLER_H
 
 #include <iostream>
 #include <string>
 #include <vector>
 
-class CTranslator{
+class Assembler{
   public:
 
     // Copy-constructor: Set to Default
-    CTranslator(const CTranslator &rhs) = default;
+    Assembler(const Assembler &rhs) = default;
 
 
     // Copy-assignment: Set to Default
-    CTranslator& operator=(const CTranslator &rhs) = default;
+    Assembler& operator=(const Assembler &rhs) = default;
 
     // Move-constructor: Set to Default
-    CTranslator(CTranslator &&rhs) = default;
+    Assembler(Assembler &&rhs) = default;
 
     // Move-assignment: Set to Default
-    CTranslator& operator=(CTranslator &&rhs) = default;
+    Assembler& operator=(Assembler &&rhs) = default;
 
     // Destructor
-    ~CTranslator() = default;
+    ~Assembler() = default;
 
-	//End of Big Five
+	  //End of Big Five
 
 
     // Two-parameter constructor// if needed
-    CTranslator(const std::string &..., const std::string &...){
+    Assembler(const std::string &..., const std::string &...){
     }
 
 
     // Overloading < operator
-    bool operator<(const CTranslator &rhs) const {
+    bool operator<(const Assembler &rhs) const {
 
     }
 
 
     // Overloading << operator
-    friend std::ostream &operator<<(std::ostream &out, const CTranslator &...){
+    friend std::ostream &operator<<(std::ostream &out, const Assembler &...){
 
         return out;
     }
