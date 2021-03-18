@@ -1,3 +1,8 @@
+#include <string>
+#include <iostream>
+#include <fstream>
+#include "Assembler.h"
+
 /*
 According to the instruction type, call the corresponding handler, return true is matched to a specific handler
 */
