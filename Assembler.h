@@ -6,7 +6,12 @@
 #include <vector>
 
 class Assembler{
-  public:
+  Public:
+    //common_instruction_handler_dispatcher
+    common_instruction_handler_dispatcher(string* source, int &loc, int max_len, Function &f1, int &addr_offset);
+
+    //function_handler
+    function_handler(string* source, int loc, int max_len);
 
     // Copy-constructor: Set to Default
     Assembler(const Assembler &rhs) = default;
@@ -24,7 +29,7 @@ class Assembler{
     // Destructor
     ~Assembler() = default;
 
-	  //End of Big Five
+      //End of Big Five
 
 
     // Two-parameter constructor// if needed
@@ -52,7 +57,11 @@ class Assembler{
 
 
   private:
-
+    std::vector<string> assembly_instructions;
+    bool is_leaf_function;
+    std::string function_name;
+    std::string type;
+    int addr_offset;
 };
 
 #endif

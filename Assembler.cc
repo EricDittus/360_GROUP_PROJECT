@@ -49,6 +49,9 @@ bool Assembler::common_instruction_handler_dispatcher(string* source, int &loc, 
 }
 }
 
+
+//------------------
+
 /*
     input: parse functions e.g., start “int test(int a, int b, int c){“
     return;
@@ -71,20 +74,22 @@ f1.assembly_instructions.push_back(“pushq %rbp”);
 f1.assembly_instructions.push_back(“movq %rsp, %rbp”)
 f1.is_leaf_function = true;
 
+//--------------------
+
 /*
 Get parameter list and read parameter values from registers
 */
 
-int addr offset = -4;
+int addr_offset = -4;
 tempstr = tempstr.substr(tempstr.find(‘(‘) + 1, tempstr.length() - f1.function_name.length() -3); // “int a, int b, int c”
 string parameter_str = tempstr.substr(tempstr.find(‘(‘) +1, tempstr.find(‘)’)));
 if(parameter_str.length() > 0){
-    f1.variables = varialbe_handler(parameter_str, 2, addr_offset);
+    f1.variables = variable_handler(parameter_str, 2, addr_offset);
     /*
         v1.1 update
     */
     int number_of_parameter = 0;
-    F]for (auto & var : f1.variables) {
+    for (auto & var : f1.variables) {
         number_of_parameters++;
         // first 6 parameters <- registers
         if (var.type == “int”){
@@ -102,6 +107,7 @@ if(parameter_str.length() > 0){
 }
 }
 
+//---------------------
 /*
 Go through each instruction
 */
@@ -123,8 +129,9 @@ common_instruction_handler_dispatcher(source, loc, max_len, f1, addr_offset);
 }
 
 
+//-------------------
 // 4 . we need to modify “RSP” at the prologue if this function is not a leaf function ad has local variables
-if(f1.is_leaf function == false && f1. variables.size() > 0){
+if(f1.is_leaf_function == false && f1. variables.size() > 0){
     int last_offset = 0 - f1.variables.back().addr_offset;
     // if last offset is not divisible by 16 then do 16 byte address alignment: multiples of 16
     if (last_offset %16 != 0){
@@ -136,4 +143,48 @@ f1.assembly_instructions.insert(f1.assembly_instructions.begin() + 3, “subq $�
 functions.push_back(f1);
 if(next_function == true){
     function_handler(source, loc, max_len);
+}
+
+
+//----------------------------
+// Used functions above
+//---------------------------
+bool Assembler::variable_offset_allocation(string* source, int &loc, Funciton f1, int &addr_offset){
+
+}
+
+bool Assembler::IF_statement_handler(string* source, int &loc, int max_len, Function &f1, int &addr_offset){
+
+}
+
+bool Assembler::FOR_statement_handler(string* source, int &loc, int max_len, Function &f1, int &addr_offset){
+
+}
+
+bool Assembler::return_handler(string* source, int &loc, Function &f1){
+
+}
+
+bool Assembler::is_function_call(string source_array_object){
+
+}
+
+bool Assembler::function_call_handler(string* source, int &loc, Function &f1){
+
+}
+
+bool Assembler::arithmetic_handler(string source_array_object, Function &f1){
+
+}
+
+//f1.variables = variable_handler(parameter_str, 2, addr_offset);
+
+f1.variables Assembler::variable_handler(string parameter_str, int x, int addr_offset){
+
+}
+
+//add_mov_instruction(“%” + register_for_argument_32[number_of_parameter - 1], to_string(var.addr_offset) + “(%rbp)”, 32))
+
+Assembler::add_mov_instruction(){
+
 }
