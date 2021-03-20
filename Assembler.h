@@ -6,7 +6,8 @@
 #include <vector>
 
 class Assembler{
-  Public:
+
+    public:
     //common_instruction_handler_dispatcher
     common_instruction_handler_dispatcher(string* source, int &loc, int max_len, Function &f1, int &addr_offset);
 
@@ -57,11 +58,11 @@ class Assembler{
 
 
   private:
-    std::vector<string> assembly_instructions;
-    bool is_leaf_function;
-    std::string function_name;
-    std::string type;
-    int addr_offset;
+    
+
+
+
+
 };
 
 #endif
