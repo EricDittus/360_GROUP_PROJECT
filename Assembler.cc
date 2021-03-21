@@ -149,7 +149,8 @@ if(next_function == true){
 //----------------------------
 // Used functions above
 //---------------------------
-bool Assembler::variable_offset_allocation(string* source, int &loc, Funciton f1, int &addr_offset){
+bool Assembler::variable_offset_allocation(string* source, int &loc, Funciton &f1, int &addr_offset){
+
 
 }
 

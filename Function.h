@@ -27,9 +27,9 @@ public:
 private:
   std::vector<string> assembly_instructions;
   bool is_leaf_function;
+  std::string type;
   std::string return_type;
   std::string function_name;
   variables (not sure on the type yet)
-  std::string type;
   int addr_offset;
 }

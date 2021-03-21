@@ -8,11 +8,7 @@
 class Assembler{
 
     public:
-    //common_instruction_handler_dispatcher
-    common_instruction_handler_dispatcher(string* source, int &loc, int max_len, Function &f1, int &addr_offset);
 
-    //function_handler
-    function_handler(string* source, int loc, int max_len);
 
     // Copy-constructor: Set to Default
     Assembler(const Assembler &rhs) = default;
@@ -30,7 +26,27 @@ class Assembler{
     // Destructor
     ~Assembler() = default;
 
-      //End of Big Five
+    //End of Big Five
+
+      //common_instruction_handler_dispatcher
+      common_instruction_handler_dispatcher(string* source, int &loc, int max_len, Function &f1, int &addr_offset);
+
+      //function_handler
+      function_handler(string* source, int &loc, int max_len);
+
+      variable_offset_allocation(string* source, int &loc, Funciton &f1, int &addr_offset);
+
+      IF_statement_handler(string* source, int &loc, int max_len, Function &f1, int &addr_offset);
+
+      FOR_statement_handler(string* source, int &loc, int max_len, Function &f1, int &addr_offset);
+
+      return_handler(string* source, int &loc, Function &f1);
+
+      is_function_call(string source_array_object);
+
+      function_call_handler(string* source, int &loc, Function &f1);
+
+      arithmetic_handler(string source_array_object, Function &f1)
 
 
     // Two-parameter constructor// if needed
@@ -58,7 +74,7 @@ class Assembler{
 
 
   private:
-    
+
 
 
 
